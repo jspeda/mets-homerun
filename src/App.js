@@ -34,14 +34,19 @@ class App extends Component {
           });
         })
         .then(descriptions => {
-          let homer = descriptions.filter(e => {
-            if (e.includes('homers')) {
-              console.log(e);
-              this.addHomer(e);
-              return true;
-            }
+          return descriptions.reduce((descriptions, description) => {
+            return descriptions.concat(description)
+          }, []);
+        })
+        .then(eventsArray => {
+          console.log(eventsArray);
+          let homer = eventsArray.filter(e => {
+            if (e.includes('homers'))
+            this.addHomer(e);
+             return true;
           })
-          homer ? this.setState({homeRun: true}) : this.setState({homeRun: false})
+          homer.length > 0 ? this.setState({homeRun: true}) : this.setState({homeRun: false})
+          console.log(homer);
         })
   }
 
