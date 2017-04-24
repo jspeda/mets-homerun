@@ -1,0 +1,27 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  text-align: center;
+  color: white;
+  min-height: 100vh;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid orange;
+  height: 40%;
+}
+
+.did-the, .mets-logo, .hit-a-homerun {
+  border: 1px solid white;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+img {
+  height: 200px;
+}
