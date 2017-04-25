@@ -12,7 +12,6 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 50px;
-  border: 1px solid orange;
   height: 40%;
 }
 
@@ -29,4 +28,5 @@ img {
 .yes-or-no {
   margin-top: 5%;
   font-size: 50px;
+  color: #FC4C00;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import circleLogo from './mets-circle-logo.png';
 import scriptLogo from './mets-script-logo.png';
 import './App.css';
+import Homer from './Homer';
 import gv from './gamevars';
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
           });
         })
         .then(descriptions => {
+          console.log(descriptions)
           return descriptions.reduce((descriptions, description) => {
             return descriptions.concat(description)
           }, []);
@@ -48,13 +50,13 @@ class App extends Component {
           homer.length > 0 ? this.setState({homeRun: true}) : this.setState({homeRun: false})
           console.log(homer);
         })
+        .catch(err => console.error(err));
   }
 
   addHomer(homer) {
     const homers = {...this.state.homers};
     const timeStamp = Date.now();
     homers[`homer-${timeStamp}`] = homer;
-    console.log(homers);
     this.setState({homers});
   }
 
@@ -72,6 +74,18 @@ class App extends Component {
         </div>
         <div className="yes-or-no">
           {this.state.homeRun ? 'YES' : 'NO'}
+        </div>
+        <div className="homerbox">
+          {
+            Object.keys(this.state.homers)
+              .map(key =>
+                <Homer
+                key={key}
+                index={key}
+                details={this.state.homers[key]}
+                />
+              )
+          }
         </div>
       </div>
     );
