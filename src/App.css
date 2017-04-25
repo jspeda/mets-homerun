@@ -16,7 +16,7 @@
 }
 
 .did-the, .mets-logo, .hit-a-homerun {
-  border: 1px solid white;
+  /*border: 1px solid white;*/
   font-size: 60px;
   margin-bottom: 20px;
 }
@@ -26,7 +26,21 @@ img {
 }
 
 .yes-or-no {
-  margin-top: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   font-size: 50px;
   color: #FC4C00;
+}
+
+.homerbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homer {
+  padding: 3px;
+  margin: 2%;
+  width: 75%;
+  border: 1px solid orange;
 }

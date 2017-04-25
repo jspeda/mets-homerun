@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import circleLogo from './mets-circle-logo.png';
 import scriptLogo from './mets-script-logo.png';
 import './App.css';
@@ -16,6 +17,10 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const today = moment().format('YYYY_MM_DD');
+    console.log(today);
+    
+
     const url = gv.metsHome ?
     `http://gd2.mlb.com/components/game/mlb/year_${gv.year}/month_${gv.month}/day_${gv.day}/gid_${gv.fullDate}_${gv.opponent}_${gv.mets}_1/game_events.json` :
     `http://gd2.mlb.com/components/game/mlb/year_${gv.year}/month_${gv.month}/day_${gv.day}/gid_${gv.fullDate}_${gv.mets}_${gv.opponent}_1/game_events.json`
