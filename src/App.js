@@ -79,7 +79,7 @@ class App extends Component {
           <div className="did-the">
             Did the
           </div>
-          <div className="mets-logo"><img src={scriptLogo} className="logo" alt="logo" /></div>
+          <div className="mets-logo"><img src={scriptLogo} className="logo" alt="Mets" /></div>
           <div className="hit-a-homerun">
             hit a home run today?
           </div>
@@ -100,7 +100,7 @@ class App extends Component {
           }
         </div>
         <div className="footer">
-          
+
         </div>
       </div>
     );

@@ -4,3 +4,9 @@ body {
   font-family: sans-serif;
   background-color: #002d70;
 }
+
+@media (max-width: 640px) {
+  body #main {
+    margin-top: -8em;
+  }
+}
