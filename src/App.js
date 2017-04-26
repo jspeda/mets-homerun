@@ -4,7 +4,7 @@ import circleLogo from './mets-circle-logo.png';
 import scriptLogo from './mets-script-logo.png';
 import './App.css';
 import Homer from './Homer';
-import gv from './gamevars';
+import sched from './schedule';
 
 class App extends Component {
   constructor() {
@@ -18,14 +18,24 @@ class App extends Component {
 
   componentWillMount() {
     const today = moment().format('YYYY_MM_DD');
+    const thisYear = moment().format('YYYY');
+    const thisMonth = moment().format('MM');
+    const thisDay = moment().format('DD');
     console.log(today);
-    
 
-    const url = gv.metsHome ?
-    `http://gd2.mlb.com/components/game/mlb/year_${gv.year}/month_${gv.month}/day_${gv.day}/gid_${gv.fullDate}_${gv.opponent}_${gv.mets}_1/game_events.json` :
-    `http://gd2.mlb.com/components/game/mlb/year_${gv.year}/month_${gv.month}/day_${gv.day}/gid_${gv.fullDate}_${gv.mets}_${gv.opponent}_1/game_events.json`
+    const todaysGame = sched.schedule2017.filter(games => games.date === `${thisYear}_${thisMonth}_${thisDay}`);
+    console.log(todaysGame.date)
 
-    const bottomOrTop = gv.metsHome ? 'bottom' : 'top';
+    if (todaysGame.length === 0) {
+      this.state.homeRun = null;
+      return;
+    }
+
+    const url = todaysGame.metshome ?
+      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${todaysGame.opponent}_${sched.mets}_1/game_events.json` :
+      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${sched.mets}_${todaysGame.opponent}_1/game_events.json`
+
+    const bottomOrTop = todaysGame.metshome ? 'bottom' : 'top';
 
     const gameEvent = fetch(url);
       gameEvent
