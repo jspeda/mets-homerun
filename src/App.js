@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    // should I move this stuff into state?
     const today = moment().format('YYYY_MM_DD');
     const thisYear = moment().format('YYYY');
     const thisMonth = moment().format('MM');
