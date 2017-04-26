@@ -22,19 +22,17 @@ class App extends Component {
     const thisYear = moment().format('YYYY');
     const thisMonth = moment().format('MM');
     const thisDay = moment().format('DD');
-    console.log(today);
+
+    const mets = 'nynmlb';
 
     const todaysGame = sched.schedule2017.filter(games => games.date === `${thisYear}_${thisMonth}_${thisDay}`);
     console.log(todaysGame.date)
 
-    if (todaysGame.length === 0) {
-      this.state.homeRun = null;
-      return;
-    }
+    if (todaysGame.length === 0) return;
 
     const url = todaysGame.metshome ?
-      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${todaysGame.opponent}_${sched.mets}_1/game_events.json` :
-      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${sched.mets}_${todaysGame.opponent}_1/game_events.json`
+      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${todaysGame.opponent}_${mets}_1/game_events.json` :
+      `http://gd2.mlb.com/components/game/mlb/year_${thisYear}/month_${thisMonth}/day_${thisDay}/gid_${today}_${mets}_${todaysGame.opponent}_1/game_events.json`
 
     const bottomOrTop = todaysGame.metshome ? 'bottom' : 'top';
 
@@ -51,13 +49,11 @@ class App extends Component {
           });
         })
         .then(descriptions => {
-          console.log(descriptions)
           return descriptions.reduce((descriptions, description) => {
             return descriptions.concat(description)
           }, []);
         })
         .then(eventsArray => {
-          console.log(eventsArray);
           let homer = eventsArray.filter(e => {
             if (e.includes('homers'))
             this.addHomer(e);
@@ -102,6 +98,9 @@ class App extends Component {
                 />
               )
           }
+        </div>
+        <div className="footer">
+          
         </div>
       </div>
     );
