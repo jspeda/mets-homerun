@@ -7,7 +7,7 @@
   text-align: center;
   color: white;
   min-height: 100vh;
-  max-width: 100%;
+  width: 100%;
   font-family: 'Karla', sans-serif;
 }
 
@@ -16,7 +16,8 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 50px;
-  height: 40%;
+  width: 100%;
+  min-height: 40%;
 }
 
 .did-the, .mets-logo, .hit-a-homerun {
@@ -47,4 +48,18 @@ img {
   margin: 2%;
   width: 75%;
   border: 1px solid orange;
+}
+
+@media (max-width: 736px) {
+  .question-container {
+    margin-top: 10px;
+  }
+
+  .did-the, .hit-a-homerun {
+    font-size: 50px;
+  }
+
+  .yes-or-no {
+    margin-top: 2%;
+  }
 }
