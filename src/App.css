@@ -7,6 +7,7 @@
   text-align: center;
   color: white;
   min-height: 100vh;
+  max-width: 100%;
   font-family: 'Karla', sans-serif;
 }
 
@@ -21,6 +22,7 @@
 .did-the, .mets-logo, .hit-a-homerun {
   font-size: 60px;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 img {
