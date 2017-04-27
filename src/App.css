@@ -50,6 +50,11 @@ img {
   border: 1px solid orange;
 }
 
+.terry {
+  margin-top: 10px;
+}
+
+
 @media (max-width: 736px) {
   .question-container {
     margin-top: 10px;

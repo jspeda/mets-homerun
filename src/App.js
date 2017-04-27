@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import scriptLogo from './mets-script-logo.png';
+import happyTerry from './terrycollins_happy.png';
+import sadTerry from './terrycollins_sad.png';
 import './App.css';
 import Homer from './Homer';
 import sched from './schedule';
@@ -96,6 +98,12 @@ class App extends Component {
                 details={this.state.homers[key]}
                 />
               )
+          }
+        </div>
+        <div className="terry">
+          {
+            this.state.homeRun ? <img src={happyTerry} alt="happyterry" /> :
+            <img src={sadTerry} alt="sadterry" />
           }
         </div>
         <div className="footer">
