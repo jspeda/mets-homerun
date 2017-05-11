@@ -27,7 +27,6 @@ class App extends Component {
     const mets = 'nynmlb';
 
     const todaysGame = sched.schedule2017.filter(games => games.date === `${thisYear}_${thisMonth}_${thisDay}`);
-    console.log(todaysGame[0].opponent)
 
     if (todaysGame.length === 0) return;
 
