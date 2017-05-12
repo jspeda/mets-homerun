@@ -5,4 +5,4 @@ you know if the Mets hit a home run today. Any home runs hit will be listed on t
 
 ![yes](https://puu.sh/vyod6/e36637f38d.png)
 
-![no](https://puu.sh/vyTvG/0ddfa26714.png)
+![no](https://puu.sh/vNZ82/0d6767de83.png)
